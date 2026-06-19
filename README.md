@@ -1,5 +1,3 @@
-<div align="center">
-
 # Java Backend API
 
 **Robust and scalable RESTful API built with Spring Boot and Java, designed to serve as a generic core service.**
@@ -15,23 +13,20 @@
 
 ---
 
-</div>
-
-<div align="center">
-
 ## Features
 
-**User Management**: Creation and retrieval of users.  
-**Task Management**: Assignment and tracking of tasks.  
-**Global Error Handling**: Standardized JSON error responses.  
-**In-Memory Database**: H2 database for zero-config startup and easy testing.  
-**Continuous Integration**: GitHub Actions workflow included for automated testing and building.  
+- **User Management**: Creation and retrieval of users.
+- **Task Management**: Assignment and tracking of tasks.
+- **Global Error Handling**: Standardized JSON error responses.
+- **In-Memory Database**: H2 database for zero-config startup and easy testing.
+- **Continuous Integration**: GitHub Actions workflow included for automated testing and building.
 
 <br />
 
 ## Requirements
 
-**Java 17+** | **Maven**
+- **Java 17+**
+- **Maven**
 
 <br />
 
@@ -57,20 +52,19 @@ The application will start on `http://localhost:8080`.
 ## API Endpoints
 
 ### Users
-`GET /api/users`: List all users.  
-`POST /api/users`: Create a new user.  
-*(Body: `{"name": "John Doe", "email": "john@example.com"}`)*
+- `GET /api/users`: List all users.
+- `POST /api/users`: Create a new user.
+  - *(Body: `{"name": "John Doe", "email": "john@example.com"}`)*
 
 ### Tasks
-`GET /api/tasks`: List all tasks.  
-`GET /api/tasks/user/{userId}`: List tasks for a specific user.  
-`POST /api/tasks/user/{userId}`: Create a task for a user.  
-*(Body: `{"title": "Complete Backend Setup", "description": "Finish configuring the Spring Boot application"}`)*  
-`PATCH /api/tasks/{id}/status?status=COMPLETED`: Update the status of a task.  
-`DELETE /api/tasks/{id}`: Delete a task.
+- `GET /api/tasks`: List all tasks.
+- `GET /api/tasks/user/{userId}`: List tasks for a specific user.
+- `POST /api/tasks/user/{userId}`: Create a task for a user.
+  - *(Body: `{"title": "Complete Backend Setup", "description": "Finish configuring the Spring Boot application"}`)*
+- `PATCH /api/tasks/{id}/status?status=COMPLETED`: Update the status of a task.
+- `DELETE /api/tasks/{id}`: Delete a task.
 
 <br />
 
-<p align="center">Made with ❤️ by <a href="https://github.com/k4inos1">k4inos1</a></p>
-
-</div>
+---
+*Made with ❤️ by [k4inos1](https://github.com/k4inos1)*
