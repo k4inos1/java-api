@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Java Backend API
+# Java Backend API
 
 **Robust and scalable RESTful API built with Spring Boot and Java, designed to serve as a generic core service.**
 
@@ -19,7 +19,7 @@
 
 <div align="center">
 
-## ✨ Features
+## Features
 
 **User Management**: Creation and retrieval of users.  
 **Task Management**: Assignment and tracking of tasks.  
@@ -29,13 +29,13 @@
 
 <br />
 
-## 📋 Requirements
+## Requirements
 
 **Java 17+** | **Maven**
 
 <br />
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 **1. Clone the repository**
 ```bash
@@ -54,14 +54,14 @@ The application will start on `http://localhost:8080`.
 
 <br />
 
-## 🌐 API Endpoints
+## API Endpoints
 
-### 👤 Users
+### Users
 `GET /api/users`: List all users.  
 `POST /api/users`: Create a new user.  
 *(Body: `{"name": "John Doe", "email": "john@example.com"}`)*
 
-### 📝 Tasks
+### Tasks
 `GET /api/tasks`: List all tasks.  
 `GET /api/tasks/user/{userId}`: List tasks for a specific user.  
 `POST /api/tasks/user/{userId}`: Create a task for a user.  
