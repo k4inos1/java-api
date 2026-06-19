@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health API Docs</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 2rem; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+        .endpoint { background: #f8f9fa; border-left: 4px solid #3498db; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; }
+        .method { display: inline-block; padding: 0.2rem 0.5rem; background: #e9ecef; border-radius: 3px; font-weight: bold; margin-right: 0.5rem; }
+        .method.get { color: #0969da; background: #ddf4ff; }
+        .method.post { color: #1a7f37; background: #dafbe1; }
+        .method.patch { color: #9a6700; background: #fff8c5; }
+        .method.delete { color: #cf222e; background: #ffebe9; }
+    </style>
+</head>
+<body>
+    <h1>Mental Health App - Backend API</h1>
+    <p>Welcome to the official documentation for the Java Spring Boot REST API serving the Mental Health application.</p>
+    
+    <h2>Base URL</h2>
+    <code>http://localhost:8080/api</code>
+
+    <h2>Endpoints</h2>
+
+    <div class="endpoint">
+        <span class="method get">GET</span> <code>/users</code>
+        <p>Retrieves a list of all registered users in the platform.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method post">POST</span> <code>/users</code>
+        <p>Registers a new user. Required body: <code>{ "name": "...", "email": "..." }</code></p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method get">GET</span> <code>/tasks/user/{userId}</code>
+        <p>Retrieves all mental health tasks, exercises, or goals assigned to a specific user.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method post">POST</span> <code>/tasks/user/{userId}</code>
+        <p>Creates a new task for a user. Required body: <code>{ "title": "...", "description": "..." }</code></p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method patch">PATCH</span> <code>/tasks/{taskId}/status?status=COMPLETED</code>
+        <p>Updates the status of a specific task (e.g., PENDING, IN_PROGRESS, COMPLETED).</p>
+    </div>
+</body>
+</html>
