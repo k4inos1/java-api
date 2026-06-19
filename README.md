@@ -15,6 +15,7 @@ Robust and scalable backend RESTful API built with Spring Boot and Java, designe
 
 ## Features
 - **User Management**: Creation and retrieval of users.
+- **Task Management**: Assignment and tracking of tasks.
 - **Global Error Handling**: Standardized JSON error responses.
 - **In-Memory Database**: H2 database for zero-config startup and easy testing.
 - **Continuous Integration**: GitHub Actions workflow included for automated testing and building.
@@ -46,3 +47,11 @@ Robust and scalable backend RESTful API built with Spring Boot and Java, designe
 - `GET /api/users`: List all users.
 - `POST /api/users`: Create a new user. 
   - Body: `{"name": "John Doe", "email": "john@example.com"}`
+
+### Tasks
+- `GET /api/tasks`: List all tasks.
+- `GET /api/tasks/user/{userId}`: List tasks for a specific user.
+- `POST /api/tasks/user/{userId}`: Create a task for a user.
+  - Body: `{"title": "Complete Backend Setup", "description": "Finish configuring the Spring Boot application"}`
+- `PATCH /api/tasks/{id}/status?status=COMPLETED`: Update the status of a task.
+- `DELETE /api/tasks/{id}`: Delete a task.
