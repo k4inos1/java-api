@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.TaskRequestDTO;
+import com.example.demo.dto.TaskResponseDTO;
+import com.example.demo.mapper.TaskMapper;
 import com.example.demo.model.Task;
 import com.example.demo.service.TaskService;
 import jakarta.validation.Valid;
@@ -22,24 +25,28 @@ public class TaskController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Task>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getAllTasks());
+    public ResponseEntity<List<TaskResponseDTO>> getAllTasks() {
+        List<Task> tasks = taskService.getAllTasks();
+        return ResponseEntity.ok(TaskMapper.toResponseDTOList(tasks));
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Task>> getTasksByUser(@PathVariable Long userId) {
-        return ResponseEntity.ok(taskService.getTasksByUserId(userId));
+    public ResponseEntity<List<TaskResponseDTO>> getTasksByUser(@PathVariable Long userId) {
+        List<Task> tasks = taskService.getTasksByUserId(userId);
+        return ResponseEntity.ok(TaskMapper.toResponseDTOList(tasks));
     }
 
     @PostMapping("/user/{userId}")
-    public ResponseEntity<Task> createTask(@PathVariable Long userId, @Valid @RequestBody Task task) {
+    public ResponseEntity<TaskResponseDTO> createTask(@PathVariable Long userId, @Valid @RequestBody TaskRequestDTO taskDTO) {
+        Task task = TaskMapper.toEntity(taskDTO);
         Task createdTask = taskService.createTask(userId, task);
-        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
+        return new ResponseEntity<>(TaskMapper.toResponseDTO(createdTask), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<Task> updateTaskStatus(@PathVariable Long id, @RequestParam Task.TaskStatus status) {
-        return ResponseEntity.ok(taskService.updateTaskStatus(id, status));
+    public ResponseEntity<TaskResponseDTO> updateTaskStatus(@PathVariable Long id, @RequestParam Task.TaskStatus status) {
+        Task updatedTask = taskService.updateTaskStatus(id, status);
+        return ResponseEntity.ok(TaskMapper.toResponseDTO(updatedTask));
     }
 
     @DeleteMapping("/{id}")

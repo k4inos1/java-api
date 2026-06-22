@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserRequestDTO;
+import com.example.demo.dto.UserResponseDTO;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
@@ -22,18 +25,21 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return ResponseEntity.ok(UserMapper.toResponseDTOList(users));
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO userDTO) {
+        User user = UserMapper.toEntity(userDTO);
         User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+        return new ResponseEntity<>(UserMapper.toResponseDTO(createdUser), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return ResponseEntity.ok(UserMapper.toResponseDTO(user));
     }
 }
