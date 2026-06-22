@@ -1,0 +1,11 @@
+meta {
+  name: Update Task Status
+  type: http
+  seq: 7
+}
+
+patch {
+  url: http://localhost:8080/api/tasks/1/status?status=COMPLETED
+  body: none
+  auth: none
+}
